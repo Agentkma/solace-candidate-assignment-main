@@ -1,0 +1,3 @@
+const DEFAULT_SEARCH_TERM = '';
+
+export { DEFAULT_SEARCH_TERM };
