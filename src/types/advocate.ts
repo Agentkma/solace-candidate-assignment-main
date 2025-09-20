@@ -8,3 +8,10 @@ export interface Advocate {
   phoneNumber: number | string;
   id?: string;
 }
+
+export type UseAdvocatesResult = {
+  data: Advocate[] | null;
+  isLoading: boolean;
+  error: Error | null;
+
+};
