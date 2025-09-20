@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import useAdvocates from "../hooks/useAdvocates";
 import useDebouncedValue from "../hooks/useDebouncedValue";
 import { DEFAULT_SEARCH_TERM } from "./constants";
+import { TableHead, TableCell, RowHeader } from "../components/table";
 
 
 
@@ -113,34 +114,34 @@ export default function Home() {
             <caption className="sr-only">List of Solace advocates matching your search</caption>
             <thead className="bg-gray-50">
               <tr>
-                <th scope="col" className="px-4 py-2 text-left text-sm font-medium text-gray-600">First Name</th>
-                <th scope="col" className="px-4 py-2 text-left text-sm font-medium text-gray-600">Last Name</th>
-                <th scope="col" className="px-4 py-2 text-left text-sm font-medium text-gray-600">City</th>
-                <th scope="col" className="px-4 py-2 text-left text-sm font-medium text-gray-600">Degree</th>
-                <th scope="col" className="px-4 py-2 text-left text-sm font-medium text-gray-600">Specialties</th>
-                <th scope="col" className="px-4 py-2 text-left text-sm font-medium text-gray-600">Years</th>
-                <th scope="col" className="px-4 py-2 text-left text-sm font-medium text-gray-600">Phone</th>
+                <TableHead>First Name</TableHead>
+                <TableHead>Last Name</TableHead>
+                <TableHead>City</TableHead>
+                <TableHead>Degree</TableHead>
+                <TableHead>Specialties</TableHead>
+                <TableHead>Years</TableHead>
+                <TableHead>Phone</TableHead>
               </tr>
             </thead>
 
             <tbody className="bg-white divide-y divide-gray-100">
               {filtered.map((advocate) => (
                 <tr key={advocate.phoneNumber} className="hover:bg-gray-50">
-                  <th scope="row" className="px-4 py-3 text-sm font-medium text-gray-900 align-top">{advocate.firstName}</th>
-                  <td className="px-4 py-3 text-sm text-gray-700 align-top">{advocate.lastName}</td>
-                  <td className="px-4 py-3 text-sm text-gray-700 align-top">{advocate.city}</td>
-                  <td className="px-4 py-3 text-sm text-gray-700 align-top">{advocate.degree}</td>
-                  <td className="px-4 py-3 align-top">
+                  <RowHeader>{advocate.firstName}</RowHeader>
+                  <TableCell>{advocate.lastName}</TableCell>
+                  <TableCell>{advocate.city}</TableCell>
+                  <TableCell>{advocate.degree}</TableCell>
+                  <TableCell>
                     <div className="flex flex-wrap gap-2">
                       {advocate.specialties.map((s, i) => (
                         <span key={`s${i}`} className="inline-block text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">{s}</span>
                       ))}
                     </div>
-                  </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 align-top">{advocate.yearsOfExperience}</td>
-                  <td className="px-4 py-3 text-sm text-gray-700 align-top">
+                  </TableCell>
+                  <TableCell>{advocate.yearsOfExperience}</TableCell>
+                  <TableCell>
                     <a href={`tel:${advocate.phoneNumber}`} className="text-sky-600 hover:underline">{advocate.phoneNumber}</a>
-                  </td>
+                  </TableCell>
                 </tr>
               ))}
             </tbody>
