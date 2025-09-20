@@ -38,8 +38,7 @@ export default function useAdvocates(): UseAdvocatesResult {
 
   useEffect(() => {
     fetchData();
-    return;
   }, [fetchData]);
 
-  return { data, isLoading, error  };
+  return { data, isLoading, error };
 }

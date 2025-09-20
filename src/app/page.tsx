@@ -60,8 +60,6 @@ export default function Home() {
         <button onClick={handleOnClickReset} style={{ marginLeft: 8 }}>
           Reset Search
         </button>
-
-        
       </div>
 
       {isLoading && <div>Loading advocates...</div>}
