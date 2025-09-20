@@ -85,17 +85,12 @@ export default function Home() {
         >
           Reset Search
         </button>
-<<<<<<< HEAD
-      </div>
-=======
   </form>
-
       {isLoading && (
         <div role="status" aria-live="polite">
           Loading advocates...
         </div>
       )}
->>>>>>> 32371fa (add types/constant for state and update html to be more semantic and accessible)
 
       {error && (
         <div role="alert" style={{ color: "red" }}>
